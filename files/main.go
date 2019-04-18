@@ -1,9 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
+	"log"
 	"os"
 	"strings"
 )
@@ -28,7 +31,56 @@ func main() {
 	// renameFile()
 	// removeFile()
 
-	writeToJson()
+	// writeToJson()
+	// readFile()
+	readWords()
+}
+
+func readFile() {
+	// go run main.go test.json arg2 arg3  --> example of run
+	f, err := os.Open(os.Args[1])
+
+	for i, v := range os.Args {
+		fmt.Println(i, v)
+	}
+
+	fmt.Println(f)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	} else {
+		io.Copy(os.Stdout, f)
+	}
+
+	currentDirectory()
+}
+
+func currentDirectory() {
+	var err error
+	cwd, err := os.Getwd()
+	if err != nil {
+		log.Fatalf("os.Getwd failed: %v", err)
+	}
+	fmt.Println("\nCurrent directory=", cwd)
+}
+
+func readWords() {
+	input := bufio.NewScanner(os.Stdin)
+
+	var all string
+	fmt.Println("Enter some words. To exist, type 'end'.")
+
+	for input.Scan() {
+		s := input.Text()
+
+		if s == "end" {
+			break
+		}
+
+		all += (s + " ")
+	}
+
+	fmt.Println(all)
 }
 
 func writeToJson() {
