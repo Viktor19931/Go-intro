@@ -7,17 +7,23 @@ type Info struct {
 	Name string
 }
 
+// DBMode ...
+// const DBMode = "mysql"
+const DBMode = "postgres"
+
 //DbDriver ..
-const DbDriver = "mysql"
+// const DbDriver = "mysql"
+var DbDriver = "mysql"
 
 // User ...
-const User = "root"
+// const User = "root"
+var User = "root"
 
 // password
-const Password = "11111111"
+var Password = "11111111"
 
 // DbName
-const DbName = "db_go1"
+var DbName = "db_go1"
 
 //Table name ...
 const TableName = "person"
