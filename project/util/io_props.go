@@ -9,7 +9,7 @@ import (
 type MrtgType []string
 
 // FileName
-const FileName = "nrtg.txt"
+const FileName = "mrtg.txt"
 
 var fileHandler *os.File
 

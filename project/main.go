@@ -17,16 +17,17 @@ func init() {
 
 	maxCPU := runtime.NumCPU()
 
-	utl.CPUUsed = 4
+	utl.CPUUsed = 8
 	runtime.GOMAXPROCS(utl.CPUUsed)
 
-	fmt.Printf("\n ======================================\n")
-	fmt.Printf("= Number of CPUs (Total=%d - Used=%d) \n", maxCPU, utl.CPUUsed)
+	fmt.Printf("\n======================================\n")
+	fmt.Printf("= Number of CPUs (Total=%d - Used=%d)", maxCPU, utl.CPUUsed)
+	fmt.Printf("\n======================================\n\n")
 }
 
 func main() {
 
-	fmt.Printf("= Opening the %s ...", utl.DbName)
+	fmt.Printf("Opening the %s ...\n\n", utl.DbName)
 	var err error
 	utl.DB, err = sql.Open(utl.DbDriver, utl.DataSourceName)
 
@@ -37,4 +38,7 @@ func main() {
 	} else {
 		fmt.Println("Success !!")
 	}
+
+	utl.MatchustomerHouses()
+	utl.LogMrtgApps()
 }

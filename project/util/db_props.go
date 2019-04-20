@@ -12,7 +12,7 @@ type Customer struct {
 	LastName    string  `json: "last_name"`
 	CreditScore uint    `json:"credit_score"`
 	Salary      float32 `json:"salary"`
-	DownPayment uint    `json:"downpayment"`
+	DownPayment float32 `json:"downpayment"`
 	HouseID     uint    `json:"house_id"`
 }
 
@@ -62,9 +62,10 @@ var RowCustomer *sql.Rows
 var NumOfRowCustomer int
 
 // Mrtgs []Mortgage
+var Mrtgs []Mortgage
 
-// AppproveIdx ... indices of Mrtgs[] those indicate approved mortgage application
-var AppproveIdx []int
+// ApproveIdx ... indices of Mrtgs[] those indicate approved mortgage application
+var ApproveIdx []int
 
 // RejectedIdx ... indicates of Mrtgs[] those indicate rejected mortgage applications
 var RejectedIdx []int
